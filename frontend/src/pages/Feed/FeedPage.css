@@ -1,0 +1,142 @@
+/* FeedPage.css */
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.profile-pic {
+    width: 50px; /* Larger profile picture */
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px; /* Increase spacing */
+    border: 2px solid #1877f2; /* Add border to profile picture for prominence */
+}
+
+.date-and-time p {
+    margin: 0;
+    color: darkgrey;
+    margin-left: 2px;
+}
+
+.date-and-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.comment-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px; /* Increase gap */
+    padding: 8px 12px; /* More padding for larger touch targets */
+    border-radius: 5px;
+    transition: background-color 0.2s ease; /* Smoother transition */
+}
+
+.comment-btn {
+    padding: 0;
+}
+
+.comment-btn button {
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    color: gray;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+}
+
+.like-btn {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px; /* Adjust gap between icon and text */
+    padding: 5px 10px; /* Adjust padding around text and icon */
+    border-radius: 5px;
+    background-color: #f0f2f5; /* Light grey background similar to Facebook's style */
+    font-weight: bold;
+    color: #1877f2; /* Facebook's blue color for liked state */
+    transition: background-color 0.2s ease; /* Smooth background color transition */
+}
+
+.like-btn:hover {
+background-color: #e4e6eb; /* Slightly darker background on hover */
+}
+
+.like-btn i {
+font-size: 16px; /* Adjust icon size */
+}
+
+.like-btn span {
+font-size: 14px; /* Adjust text size */
+}
+
+/* Typography Enhancements */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    background-color: #f0f2f5; /* Facebook-like background color */
+    color: #333; /* Base text color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feed {
+        max-width: 100%;
+        padding: 0 15px; /* Adjust padding for mobile */
+    }
+
+    .post-header h4,
+    .post-content,
+    .post-actions {
+        font-size: 16px; /* Adjust font size for mobile readability */
+    }
+}
+
+
+.allposts {
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    width: 80%; 
+    margin-bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+body {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #828282 #f0f0f0; /* For Firefox */
+
+    &::-webkit-scrollbar {
+    width: 8px; /* For Chrome, Safari, and Opera */
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3; /* Scrollbar color */
+    }
+
+    &::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Track color */
+    }
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+}
+
+.author-container {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+}

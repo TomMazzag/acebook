@@ -28,10 +28,10 @@ const create = async (req, res) => {
     let url = `${req.protocol}://${req.get(
       "host"
     )}/uploads/default_profile_pic.svg.png`;
-
+    console.log(req.file);
     if (req.file) {
-      profile_pic = req.file.filename;
-      url = `${req.protocol}://${req.get("host")}/uploads/${profile_pic}`;
+      profile_pic = req.file.path;
+      url = profile_pic;
     }
 
     const { full_name, email, password } = req.body;
@@ -97,7 +97,7 @@ const UsersController = {
     try {
       // If there's a new profile picture, add its path to the update data.
       if (profilePicPath) {
-        let url = `${req.protocol}://${req.get("host")}/${profilePicPath}`;
+        let url = profilePicPath;
 
         updatedUserData.profile_pic = url;
       }

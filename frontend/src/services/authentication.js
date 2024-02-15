@@ -28,23 +28,11 @@ export const login = async (email, password) => {
   }
 };
 
-export const signup = async (profile_pic, full_name, email, password) => {
-  const payload = {
-    profile_pic: profile_pic,
-    full_name: full_name,
-    email: email,
-    password: password,
-  };
-
-  const requestOptions = {
+export const signup = async (formData) => {
+  const response = await fetch(`${BACKEND_URL}/users`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  };
-
-  let response = await fetch(`${BACKEND_URL}/users`, requestOptions);
+    body: formData,
+  });
 
   // docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
   if (response.status === 201) {

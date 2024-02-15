@@ -71,7 +71,7 @@ export const ProfilePage = () => {
     return (
         <>
         <Navbar />
-        {myProfilePage() && (<h1 class="profile-h1">My Profile</h1>)}
+        {myProfilePage() && (<h1 className="profile-h1">My Profile</h1>)}
         
         <div className="profile">
             <div className="details-and-friend-container">
@@ -102,7 +102,7 @@ export const ProfilePage = () => {
                     <FriendList userId={userId}/>
                 </div>
                 <div className="posts-by-user">
-                    {myProfilePage() ? <h2 class="my-posts-title">My posts</h2> : <h2>Posts</h2>}
+                    {myProfilePage() ? <h2 className="my-posts-title">My posts</h2> : <h2>Posts</h2>}
                     {[...posts].reverse().map((post) => (
                         <Post post={post} key={post._id} token={token} />
                     ))}

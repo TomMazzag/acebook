@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignupPage.css"
+import { signup } from "../../services/authentication";
 
 
 export const SignupPage = () => {
@@ -41,25 +42,17 @@ export const SignupPage = () => {
       formData.append("email", email);
       formData.append("password", password);
       
-
-      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-      // Send the form data to the server using fetch or any HTTP library
-      const response = await fetch(`${BACKEND_URL}/users`, {
-        method: "POST",
-        body: formData,
-      });
+      signup(formData)
+      // const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+      // const response = await fetch(`${BACKEND_URL}/users`, {
+      //   method: "POST",
+      //   body: formData,
+      // });
   
-      if (response.ok) {
-        console.log("redirecting...:");
-        navigate("/login");
-      } else if (response.status === 409) {
-        setErrorMessage("Email already in use")
-      } else {
-        console.error("Server error:", response.statusText);
-        navigate("/signup");
-      }
+      navigate("/login");
     } catch (err) {
       console.error(err);
+      setErrorMessage("Email already in use")
       navigate("/signup");
     }
   };
